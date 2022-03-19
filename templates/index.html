@@ -1,0 +1,58 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="container text-center">
+        <h3>Welcome</h3>
+
+        <hr>
+        <br>
+        <div class="row">
+            <div class="col-md-3">
+                <a href="{% url 'legal index' %}">
+                    {#          <a href="{% url 'notes' %}">#}
+                    <div class="card">
+                        <img class="card-img-top" src="{% static 'images/legal_help.jpeg' %}" alt="Notes image">
+                        <div class="card-body">
+                            <h5 class="card-title ">
+                                Legal help
+                            </h5>
+                            You are looking for legal services? See our practice areas!
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a href="{% url 'list all articles' %}">
+                    <div class="card">
+                        <img class="card-img-top" src="{% static 'images/articles.jpeg' %}" alt="Notes image">
+                        <div class="card-body">
+                            <h5 class="card-title ">
+                                Articles
+                            </h5>
+                            Read the latest law amendments and news!
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <a href="{% url 'contact us' %}">
+                <div class="card">
+                    <img class="card-img-top" src="{% static 'images/articles.jpeg' %}" alt="Notes image">
+                    <div class="card-body">
+                        <h5 class="card-title ">
+                            Contact us
+                        </h5>
+                        If you have questions and find difficulties to find what you need, don't hesitate! Contact us and we will reply shortly.
+                    </div>
+                </div>
+            </a>
+        </div>
+        </div>
+    </section>
+{% endblock %}
+
+

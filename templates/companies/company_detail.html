@@ -1,0 +1,31 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <div class="card" style="width: 600px">
+    <img class="card-img-top" src="{{ company.image_url}}" alt="Card image" style="width: 100%">
+        <div class="card-body">
+            <h4 class="card-title"><u>Name:</u>{{ company.company_name }}</h4>
+
+            {% if areas.exists %}
+                            {% for area in areas %}
+                            <p class="card-text"><u>Main area:</u>{{ area.name }}</p>
+                      {% endfor %}
+                        {% endif %}
+                {% if company.expertise %}
+                            <p class="card-text">><u>Expertise:</u> {{ company.expertise }}</p>
+                {% endif %}
+                <p class="card-text"><u>Details:</u> {{ company.phone_number }}</p>
+                <p class="card-text">{{ company.address }}</p>
+                <p class="card-text">{{ company.website}}</p>
+
+            {% if is_creator %}
+                <div>
+                    <a href="{% url 'company edit' company.id %}" class="btn btn-primary">Edit</a>
+                    <a href="{% url 'company delete' company.id %}" class="btn btn-danger">Delete</a>
+{#                    <a href="{% url 'areas' company.id %}" class="btn btn-primary">Update main areas</a>#}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

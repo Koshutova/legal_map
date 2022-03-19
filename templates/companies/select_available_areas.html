@@ -1,0 +1,29 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+
+    <h1 class='text-center'>Select Company's Main Area of Expertise</h1>
+    <div class="row">
+    {% if request.user.is_authenticated %}
+        {% for area in areas %}
+            <div class="col-lg-4">
+                <div class="card" style="width: 18rem;">
+
+                    <h2 class="card-header">{{ area.name }}</h2>
+                    {% if area not in company.mainarea_set.all %}
+                        <a class="btn btn-outline-danger"
+                           href="{% url 'select areas' instruction='select' companyid=company.id areaid=area.id %}">Select</a>
+                    {% elif area in company.mainarea_set.all %}
+                        <a class="btn btn-outline-danger"
+                           href="{% url 'select areas' instruction='unselect' companyid=company.id areaid=area.id %}">Unselect</a>
+
+                        {#<a href="{% url 'article delete' article.id %}" class="btn btn-danger">Delete</a>#}
+                    {% endif %}
+                <br>
+                </div>
+            </div>
+            </div>
+        {% endfor %}
+{#         <a href="{% url 'legal index' %}" class="btn btn-primary">Complete editing</a>#}
+    {% endif %}
+{% endblock %}

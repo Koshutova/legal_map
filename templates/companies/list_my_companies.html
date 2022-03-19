@@ -1,0 +1,43 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+
+    <h1 class='text-center'>My companies</h1>
+    <div class="row">
+    {% if has_company %}
+        {% for company in my_companies %}
+            <div class="col-lg-4">
+                <div class="card" style="width: 18rem;">
+
+                    <h2 class="card-header">{{ company.company_name }}</h2>
+                    <div class="card-body">
+                        <img class="card-img" src="{{ company.image_url }}" alt="Card image cap">
+                        {% if company.mainareas.exists %}
+                            {% for area in company.mainareas.all %}
+                            <h5 class="card-title">{{ area.name }}</h5>
+                      {% endfor %}
+                        {% endif %}
+                    <br>
+                    <hr>
+
+                        <div>
+                            <a href="{% url 'company details' company.id %}" class="btn btn-primary">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <div class="card-body">
+                <p class="text-info">You have no companies registered yet.
+                    Register your first company<a href="{% url 'company create' %}" class="text-primary"> here!</a>
+                </p>
+                <p class="text-info">You don not want to register company?
+                    Go back to Legal help <a href="{% url 'legal index' %}" class="badge badge-pill badge-info"> here!</a>
+                </p>
+            </div>
+         </div>
+    {% endif %}
+{% endblock %}

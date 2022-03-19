@@ -1,0 +1,32 @@
+{% extends 'common/base.html' %}
+{#{% load no_articles_notification %}#}
+
+{% block content %}
+{#{% no_articles_notification %}#}
+    <h1 class='text-center'>Choose the professionals you need! </h1>
+    <div class="row">
+        {% for main_area in main_areas %}
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="col-lg-4">
+                <div class="card" style="width: 18rem;">
+
+                    <h2 class="card-header">{{ main_area.name }}</h2>
+                    <div class="card-body">
+                        <img class="card-img" src="{{ main_area.image.url }}" alt="Card image cap">
+
+                            <a href="{% url 'find companies' main_area.id %}" class="btn btn-primary">See companies</a>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+
