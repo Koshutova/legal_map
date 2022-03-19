@@ -2,6 +2,8 @@
 {% load static %}
 
 {% block content %}
+
+
     <section class="container text-center">
         <h3>Welcome</h3>
 
@@ -9,20 +11,21 @@
         <br>
         <div class="row">
             <div class="col-md-3">
-                <a href="{% url 'legal index' %}">
-                    {#          <a href="{% url 'notes' %}">#}
-                    <div class="card">
-                        <img class="card-img-top" src="{% static 'images/legal_help.jpeg' %}" alt="Notes image">
-                        <div class="card-body">
-                            <h5 class="card-title ">
-                                Legal help
-                            </h5>
-                            You are looking for legal services? See our practice areas!
-                        </div>
+                <a href="{% url 'legal index' %}" class="card">
+                  <img src="{% static 'images/legal_help.jpeg' %}" class="card__image" alt="" />
+                  <div class="card__overlay">
+                    <div class="card__header">
+                      <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
+                      <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" />
+                      <div class="card__header-text">
+                        <h3 class="card__title">Legal help</h3>
+                        <span class="card__status">1 hour ago</span>
+                      </div>
                     </div>
+                    <p class="card__description"> You are looking for legal services? See our practice areas!</p>
+                  </div>
                 </a>
             </div>
-
             <div class="col-md-3">
                 <a href="{% url 'list all articles' %}">
                     <div class="card">
@@ -36,23 +39,20 @@
                     </div>
                 </a>
             </div>
+            <div class="col-md-3">
+                <a href="{% url 'contact us' %}">
+                    <div class="card">
+                        <img class="card-img-top" src="{% static 'images/articles.jpeg' %}" alt="Notes image">
+                        <div class="card-body">
+                            <h5 class="card-title ">
+                                Contact us
+                            </h5>
+                            If you have questions and find difficulties to find what you need, don't hesitate! Contact us and we will reply shortly.
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
 
-        <div class="col-md-3">
-            <a href="{% url 'contact us' %}">
-                <div class="card">
-                    <img class="card-img-top" src="{% static 'images/articles.jpeg' %}" alt="Notes image">
-                    <div class="card-body">
-                        <h5 class="card-title ">
-                            Contact us
-                        </h5>
-                        If you have questions and find difficulties to find what you need, don't hesitate! Contact us and we will reply shortly.
-                    </div>
-                </div>
-            </a>
-        </div>
-        </div>
     </section>
 {% endblock %}
-
-
