@@ -42,7 +42,7 @@ def list_all_articles(request):
     return render(request, 'articles/list_all_articles.html', context)
 
 
-@any_group_required(groups=['Author'])
+@any_group_required(groups=['Author', 'Admin'])
 def create(request):
     if request.method == 'POST':
         form = ArticleForm(request.POST, request.FILES)
@@ -71,7 +71,7 @@ def article_details(request, pk):
     return render(request, 'articles/article_detail.html', context)
 
 
-@any_group_required(groups=['Author'])
+@any_group_required(groups=['Author', 'Admin'])
 def edit_article(request, pk):
     article = Article.objects.get(pk=pk)
     if request.method == 'POST':
@@ -90,7 +90,7 @@ def edit_article(request, pk):
     return render(request, 'articles/article_edit.html', context)
 
 
-@any_group_required(groups=['Author'])
+@any_group_required(groups=['Author', 'Admin'])
 def delete_article(request, pk):
     article = Article.objects.get(pk=pk)
     if request.method == 'POST':
@@ -103,7 +103,7 @@ def delete_article(request, pk):
         return render(request, 'articles/article_delete.html', context)
 
 
-@any_group_required(groups=['Author'])
+@any_group_required(groups=['Author', 'Admin'])
 def list_my_articles(request):
     all_articles = Article.objects.all()
     my_articles = all_articles.filter(user_id=request.user.id)
