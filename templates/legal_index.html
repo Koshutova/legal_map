@@ -3,19 +3,26 @@
 
 {% block content %}
 {#{% no_articles_notification %}#}
-    <h1 class='text-center'>Choose the professionals you need! </h1>
+    <h1 class='text-center' style="color:rosybrown;">Choose the professionals you need! </h1>
+    <br>
     <div class="row">
         {% for main_area in main_areas %}
-               <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-
-                    <h2 class="card-header">{{ main_area.name }}</h2>
-                    <div class="card-body">
-                        <img class="card-img" src="{{ main_area.image.url }}" alt="Card image cap">
-
-                            <a href="{% url 'find companies' main_area.id %}" class="btn btn-primary">See companies</a>
+            <div class="col-md-3">
+                <a href="{% url 'find companies' main_area.id %}" class="card">
+                    <img src="{{ main_area.image.url }}" class="card__image" alt=""/>
+                    <div class="card__overlay">
+                        <div class="card__header">
+                            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                                <path/>
+                            </svg>
+                            <div class="card__header-text">
+                                <h3 class="card__title">{{ main_area.name }}</h3>
+                                <span class="card__status">find companies</span>
+                            </div>
+                        </div>
+                        <p class="card__description"> See all companies that practice {{ main_area.name }}</p>
                     </div>
-                </div>
+                </a>
             </div>
         {% endfor %}
     </div>

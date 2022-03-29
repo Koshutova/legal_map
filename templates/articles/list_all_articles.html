@@ -2,34 +2,52 @@
 {% load has_group %}
 
 {% block content %}
-{#{% no_articles_notification %}#}
-    {% if request.user.is_authenticated and request.user|has_group:'Author'%}
+    {% if request.user.is_authenticated and request.user|has_group:'Author' or request.user|has_group:'Admin' %}
     <a href="{% url 'article create' %}" class="btn btn-dark">Create article</a>
     {% endif %}
-    <h1 class='text-center'>All articles</h1>
+    <h1 style="color:rosybrown;" class='text-center'>All articles</h1>
+    <br>
     <div class="row">
-        {% for article in articles %}
-            <div class="col-lg-4">
-                <div class="card" style="width: 18rem;">
+{% for article in articles %}
+     <div class="white_block_article">
+        <form method="post" style="color:rosybrown;" >
+            <h3 class="text-center">{{ article.title }}</h3>
+            <hr>
+            <img class="content_image" src="{{ article.picture.url }}" alt="/">
+                {% if article.author_name %}
+                <h5 class="card-subtitle">{{ article.author_name }}</h5>
+                {% else %}
+                    <h5 class="card-subtitle">Legal map</h5>
+                {% endif %}
+                <p class="card-text text-sm flex-1">{{ article.article_text|truncatewords:10 }}</p>
+                <p class="block_date_text">{{ article.created }}</p>
+                <a href="{% url 'article details' article.id %}" class="btn btn-primary">See details</a>
+         </form>
+    </div>
 
-                    <h2 class="card-header">{{ article.title }}</h2>
-                    <div class="card-body">
-                        <img class="card-img" src="{{ article.picture.url }}" alt="Card image cap">
-                        {% if article.author_name %}
-                            <h5 class="card-subtitle">{{ article.author_name }}</h5>
-                        {% else %}
-                            <h5 class="card-subtitle">Legal map</h5>
-                        {% endif %}
-
-                        <p class="card-text">{{ article.article_text }}</p>
-                        <p class="card-text">{{ article.created }}</p>
-
-                        <a href="{% url 'article details' article.id %}" class="btn btn-primary">See details</a>
 
 
-                    </div>
-                </div>
-            </div>
+{#            <div class="col-lg-4">#}
+{#                <div class="legal_articles" style="width: 18rem;">#}
+{##}
+{#                    <h2 class="legal_articles .card-header">{{ article.title }}</h2>#}
+{#                    <div class="legal_articles .card-body">#}
+{#                        <img class="legal_articles .card_image" src="{{ article.picture.url }}" style="width: 70%" alt="/">#}
+{#                        {% if article.author_name %}#}
+{#                            <h5 class="card-subtitle">{{ article.author_name }}</h5>#}
+{#                        {% else %}#}
+{#                            <h5 class="card-subtitle">Legal map</h5>#}
+{#                        {% endif %}#}
+{##}
+{#                        <p class="card-text text-sm flex-1">{{ article.article_text|truncatewords:10 }}</p>#}
+{#                        <p class="card-text">{{ article.created }}</p>#}
+{##}
+{#                        <a href="{% url 'article details' article.id %}" class="btn btn-primary">See details</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+         {% empty %}
+            <p> Sorry, there are no articles yet! </p>
         {% endfor %}
     </div>
 {% endblock %}

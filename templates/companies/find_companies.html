@@ -1,41 +1,45 @@
+
 {% extends 'common/base.html' %}
 
 {% block content %}
-
-    <h1 class='text-center'>My companies</h1>
-    <div class="row">
     {% if have_companies %}
-        {% for company in companies_area %}
-            <div class="col-lg-4">
-                <div class="card" style="width: 18rem;">
-
-                    <h2 class="card-header">{{ company.company_name }}</h2>
-                    <div class="card-body">
-                        <img class="card-img" src="{{ company.image_url }}" alt="Card image cap">
-                        {% if company.mainarea_set.exists %}
-                            {% for area in company.area_set.all %}
-                            <h5 class="card-title">{{ area.name }}</h5>
-                      {% endfor %}
-                        {% endif %}
-                    <br>
-                    <hr>
-
-                        <div>
-                            <a href="{% url 'company details' company.id %}" class="btn btn-primary">Details</a>
+        <div class="row">
+            {% for company in companies_area %}
+                <div class="col-md-3">
+                    <a href="{% url 'company details' company.id %}" class="card">
+                        <img src="{{ company.image_url }}" class="card__image" alt=""/>
+                        <div class="card__overlay">
+                            <div class="card__header">
+                                <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                                    <path/>
+                                </svg>
+                                <div class="card__header-text">
+                                    <h3 class="card__title">{{ company.company_name }}</h3>
+{#                                    {% if company.mainarea_set.exists %}#}
+{#                                        {% for area in company.area_set.all %}#}
+{#                                            <h3 class="card__title">{{ area.name }}</h3>#}
+{#                                            <h5 class="card__subtitle">{{ area.name }}</h5>#}
+{#                                        {% endfor %}#}
+{#                                    {% endif %}#}
+                                     {% for area in company.area_set.all %}
+                                            <h3 class="card__title">{{ area.name }}</h3>
+                                            <h5 class="card__subtitle">{{ area.name }}</h5>
+                                        {% endfor %}
+                                </div>
+                            </div>
+                            <p class="card__description"> See more about us</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
-            </div>
-            <br>
-            <hr>
-        {% endfor %}
+                </div>
+            {% endfor %}
     {% else %}
         <div class="card-body">
-                <p class="mt-2">Sorry! There are no companies in this area registered yet.
-                </p>
-                <p class="card-text">Go back to Legal help <a href="{% url 'legal index' %}">here!</a>
-                </p>
-            </div>
-         </div>
+            <p class="mt-2" style="color:rosybrown;">Sorry! There are no companies in this area registered yet.
+            </p>
+            <p class="card-text" style="color:rosybrown;">Go back to Legal help <a
+                    href="{% url 'legal index' %}">here!</a>
+            </p>
+        </div>
     {% endif %}
 {% endblock %}

@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <h1 class='text-center'>My companies</h1>
+    <h1 class='text-center' style="color:SeaShell;" >My companies</h1>
     <div class="row">
     {% if has_company %}
         {% for company in my_companies %}
@@ -19,7 +19,6 @@
                         {% endif %}
                     <br>
                     <hr>
-
                         <div>
                             <a href="{% url 'company details' company.id %}" class="btn btn-primary">Details</a>
                         </div>
@@ -31,10 +30,10 @@
         {% endfor %}
     {% else %}
         <div class="card-body">
-                <p class="text-info">You have no companies registered yet.
+                <p class="text-info" style="color:SeaShell;">You have no companies registered yet.
                     Register your first company<a href="{% url 'company create' %}" class="text-primary"> here!</a>
                 </p>
-                <p class="text-info">You don not want to register company?
+                <p class="text-info" style="color:SeaShell;">You don not want to register company?
                     Go back to Legal help <a href="{% url 'legal index' %}" class="badge badge-pill badge-info"> here!</a>
                 </p>
             </div>

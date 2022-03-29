@@ -1,74 +1,48 @@
 {% load has_group %}
 <header>
-<body>
-    <nav class="navMenu">
-      <a href="#">Home</a>
-      <a href="#">Blog</a>
-      <a href="#">Work</a>
-      <a href="#">About</a>
-
-      <div class="dot"></div>
-    </nav>
-  </body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'index' %}">Legal Map</a>
-            <a class="navbar-brand" href="{% url 'contact us' %}">Contact us</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                <ul class="navbar-nav mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
-                    </li>
-                    {% if request.user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'profile details' %}"> Hello {{ request.user }}</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                               data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
-                                Menu
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{% url 'list all articles' %}">All articles</a>
-                                <a class="dropdown-item" href="{% url 'legal index' %}">Legal help</a>
-                                <a class="dropdown-item" href="{% url 'company create' %}">Create company</a>
-                                <a class="dropdown-item" href="{% url 'list my companies' %}">My companies</a>
-                                {% if request.user|has_group:'Author' or request.user|has_group:'Admin'%}
-                                    <a class="dropdown-item" href="{% url 'article create' %}">Create article</a>
-                                    <a class="dropdown-item" href="{% url 'list my articles' %}">My articles</a>
-                                {% endif %}
-                                <div class="dropdown-divider"></div>
-                            </div>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'sign out' %}">Sign out</a>
-                        </li>
-                    {% else %}
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                               data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
-                                Menu
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{% url 'list all articles' %}">All articles</a>
-                                <a class="dropdown-item" href="{% url 'legal index' %}">Legal help</a>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'sign up' %}">Sign up</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'signin' %}">Sign in</a>
-                        </li>
+    <nav class="navbar">
+        <!-- LOGO -->
+        <div class="logo">LEGAL MAP</div>
+        <!-- NAVIGATION MENU -->
+        <ul class="nav-links">
+            <!-- USING CHECKBOX HACK -->
+            <input type="checkbox" id="checkbox_toggle"/>
+            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+            <!-- NAVIGATION MENUS -->
+            <div class="menu">
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'contact us' %}">Contact Us</a></li>
+                {% if request.user.is_authenticated %}
+                <li class="services">
+                    <a href="/">Menu</a>
+                    <!-- DROPDOWN MENU -->
+                    <ul class="dropdown">
+                        <li><a href="{% url 'list all articles' %}">All articles </a></li>
+                        <li><a href="{% url 'legal index' %}">Legal help </a></li>
+                        <li><a href="{% url 'company create' %}">Create company </a></li>
+                        <a class="dropdown-item" href="{% url 'list my companies' %}">My companies</a></li>
+                            {% if request.user|has_group:'Author' or request.user|has_group:'Admin'%}
+                                <li><a href="{% url 'article create' %}">Create article </a></li>
+                                <li><a href="{% url 'list my articles' %}">My articles </a></li>
+                            {% endif %}
+                    </ul>
+                </li>
+                <li><a href="{% url 'profile details' %}"> {{ request.user }}</a></li>
+                <li><a href="{% url 'sign out' %}">Sign out </a></li>
+                        {% else %}
+                    <li class="services">
+                    <a href="/">Menu</a>
+                    <!-- DROPDOWN MENU -->
+                    <ul class="dropdown">
+                        <li><a href="{% url 'list all articles' %}">All articles </a></li>
+                        <li><a href="{% url 'legal index' %}">Legal help </a></li>
+                    </ul>
+                </li>
+                <li><a href="{% url 'sign up' %}">Sign up</a></li>
+                <li><a href="{% url 'signin' %}">Sign in</a></li>
                     {% endif %}
-                </ul>
+
             </div>
-        </div>
+        </ul>
     </nav>
 </header>
