@@ -9,7 +9,7 @@
                 <form method="post" class="furniture-form" action="{% url 'article edit' article.id %}" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <button class="btn btn-primary mt-2" type="submit">Edit</button>
+                    <button class="btn-edit" type="submit">Edit</button>
                 </form>
             </div>
             <div class="col-lg-3"></div>

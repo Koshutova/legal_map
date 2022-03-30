@@ -9,7 +9,7 @@
                 <form method="post" class="furniture-form" action="{% url 'company create'%}" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form | crispy }}
-                    <button class="btn btn-primary mt-2" type="submit">Create</button>
+                    <button class="btn-create" type="submit">Create</button>
                 </form>
             </div>
             <div class="col-lg-3"></div>

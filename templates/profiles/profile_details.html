@@ -6,7 +6,7 @@
     <form action="{% url 'profile details' %}" method="post">
     {% csrf_token %}
     {{ form | crispy }}
-    <button>Update</button>
+    <button class="btn-edit">Update</button>
     </form>
     <div class="card-body">
         <p class="text-info">Do you want to change your password?

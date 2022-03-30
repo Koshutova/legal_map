@@ -2,40 +2,36 @@
 
 {% block content %}
     <a href="{% url 'article create' %}" class="btn btn-dark">Create article</a>
-
-    <h1 class='text-center'>My articles</h1>
+    <h2 class='text-center'>My articles</h2>
+    <br>
     <div class="row">
-    {% if has_articles %}
-        {% for article in my_articles %}
-            <div class="col-lg-4">
-                <div class="card" style="width: 18rem;">
-
-                    <h2 class="card-header">{{ article.title }}</h2>
-                    <div class="card-body">
-                        <img class="card-img" src="{{ article.picture.url }}" alt="Card image cap">
+        {% if has_articles %}
+            {% for article in my_articles %}
+                <div class="white_block_article">
+                    <form method="post" style="color:#111;">
+                        <h3 class="text-center">{{ article.title }}</h3>
+                        <hr>
+                        <img class="content_image" src="{{ article.picture.url }}" alt="/">
                         {% if article.author_name %}
                             <h5 class="card-subtitle">{{ article.author_name }}</h5>
                         {% else %}
                             <h5 class="card-subtitle">Legal map</h5>
                         {% endif %}
-
-                        <p class="card-text">{{ article.article_text }}</p>
-                        <p class="card-text">{{ article.created }}</p>
-                        <div>
-                            <a href="{% url 'article edit' article.id %}" class="btn btn-primary">Edit</a>
-                            <a href="{% url 'article delete' article.id %}" class="btn btn-danger">Delete</a>
-                        </div>
-                    </div>
+                        <p class="text_description">{{ article.article_text }}</p>
+                        <p class="block_date_text">{{ article.created }}</p>
+                        <a href="{% url 'article edit' article.id %}" class="btn-edit">Edit</a>
+                        <a href="{% url 'article delete' article.id %}" class="btn btn-danger">Delete</a>
+                    </form>
                 </div>
-            </div>
-        {% endfor %}
-    {% else %}
-        <div class="card-body">
+            {% endfor %}
+        {% else %}
+            <div class="card-body">
                 <p class="mt-2">You have no article created yet.</p>
-                <p class="card-text">You don not want to create article? Go back to All articles <a href="{% url 'article create' %}" class="badge badge-pill badge-dark">here!</a>
+                <p class="card-text">You don not want to create article? Go back to All articles <a
+                        href="{% url 'article create' %}" class="badge badge-pill badge-dark">here!</a>
                 </p>
             </div>
-         </div>
-    {% endif %}
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
