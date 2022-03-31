@@ -10,7 +10,7 @@
                 <div class="card" style="width: 18rem;">
 
                     <h2 class="card-header">{{ area.name }}</h2>
-                    {% if area not in company.mainarea_set.all %}
+                    {% if area not in company.areas.all %}
                         <a class="btn btn-outline-danger"
                            href="{% url 'select areas' instruction='select' companyid=company.id areaid=area.id %}">Select</a>
                     {% elif area in company.mainarea_set.all %}

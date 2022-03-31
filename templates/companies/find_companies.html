@@ -1,4 +1,3 @@
-
 {% extends 'common/base.html' %}
 
 {% block content %}
@@ -15,29 +14,24 @@
                                 </svg>
                                 <div class="card__header-text">
                                     <h3 class="card__title">{{ company.company_name }}</h3>
-{#                                    {% if company.mainarea_set.exists %}#}
-{#                                        {% for area in company.area_set.all %}#}
-{#                                            <h3 class="card__title">{{ area.name }}</h3>#}
-{#                                            <h5 class="card__subtitle">{{ area.name }}</h5>#}
-{#                                        {% endfor %}#}
-{#                                    {% endif %}#}
-                                     {% for area in company.area_set.all %}
-                                            <h3 class="card__title">{{ area.name }}</h3>
-                                            <h5 class="card__subtitle">{{ area.name }}</h5>
+                                    {% if company.areas.exists %}
+                                        {% for area in company.areas.all %}
+                                            <h5 class="card__tagline">{{ area.name }}</h5>
                                         {% endfor %}
+                                    {% endif %}
                                 </div>
                             </div>
                             <p class="card__description"> See more about us</p>
                         </div>
                     </a>
                 </div>
-                </div>
+
             {% endfor %}
     {% else %}
         <div class="card-body">
-            <p class="mt-2" style="color:rosybrown;">Sorry! There are no companies in this area registered yet.
+            <p class="mt-2" style="color:#6A515E;">Sorry! There are no companies in this area registered yet.
             </p>
-            <p class="card-text" style="color:rosybrown;">Go back to Legal help <a
+            <p class="card-text" style="color:#6A515E;">Go back to Legal help <a style="color: #b78434"
                     href="{% url 'legal index' %}">here!</a>
             </p>
         </div>

@@ -2,41 +2,36 @@
 
 {% block content %}
 
-    <h1 class='text-center' style="color:SeaShell;" >My companies</h1>
+    <h1 class='text-center' style="color:#6A515E;">My companies</h1>
     <div class="row">
-    {% if has_company %}
-        {% for company in my_companies %}
-            <div class="col-lg-4">
-                <div class="card" style="width: 18rem;">
-
-                    <h2 class="card-header">{{ company.company_name }}</h2>
-                    <div class="card-body">
-                        <img class="card-img" src="{{ company.image_url }}" alt="Card image cap">
-                        {% if company.mainareas.exists %}
-                            {% for area in company.mainareas.all %}
-                            <h5 class="card-title">{{ area.name }}</h5>
-                      {% endfor %}
+        {% if has_company %}
+            {% for company in my_companies %}
+                <div class="white_block_article">
+                    <form method="post" style="color:#111;">
+                        <h3 class="text-center">{{ company.company_name }}</h3>
+                        <hr>
+                        <img class="content_image" src="{{ company.image_url }}" alt="/">
+                        {% if company.areas.exists %}
+                            {% for area in company.areas.all %}
+                                <h8>{{ area.name }}</h8>
+                                <br>
+                            {% endfor %}
                         {% endif %}
-                    <br>
-                    <hr>
-                        <div>
-                            <a href="{% url 'company details' company.id %}" class="btn btn-primary">Details</a>
-                        </div>
-                    </div>
+                        <a href="{% url 'company details' company.id %}" class="btn-edit">Details</a>
+                    </form>
                 </div>
-            </div>
-            <br>
-            <hr>
-        {% endfor %}
-    {% else %}
-        <div class="card-body">
-                <p class="text-info" style="color:SeaShell;">You have no companies registered yet.
+
+            {% endfor %}
+        {% else %}
+            <div class="card-body">
+                <p class="text-info" style="color:#6A515E;">You have no companies registered yet.
                     Register your first company<a href="{% url 'company create' %}" class="text-primary"> here!</a>
                 </p>
-                <p class="text-info" style="color:SeaShell;">You don not want to register company?
-                    Go back to Legal help <a href="{% url 'legal index' %}" class="badge badge-pill badge-info"> here!</a>
+                <p class="text-info" style="color:#6A515E;">You don not want to register company?
+                    Go back to Legal help <a href="{% url 'legal index' %}" class="badge badge-pill badge-info">
+                        here!</a>
                 </p>
             </div>
-         </div>
-    {% endif %}
+            </div>
+        {% endif %}
 {% endblock %}

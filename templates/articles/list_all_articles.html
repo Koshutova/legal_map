@@ -5,7 +5,7 @@
     {% if request.user.is_authenticated and request.user|has_group:'Author' or request.user|has_group:'Admin' %}
     <a href="{% url 'article create' %}" class="btn btn-dark">Create article</a>
     {% endif %}
-    <h1 style="color:rosybrown;" class='text-center'>All articles</h1>
+    <h1 style="color:#111;" class='text-center'>All articles</h1>
     <br>
     <div class="row">
 {% for article in articles %}

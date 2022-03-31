@@ -7,13 +7,14 @@ html {
 }
 
 
+
 main {
-    font-family: Barlow, Quicksand, Rubik, sans-serif, serif, 'Times New Roman', Times, serif !important;
+    font-family: Barlow, Quicksand, Rubik, sans-serif, serif, 'Garamond', Times, serif !important;
 }
 
 
 footer {
-    font-family: Rubik, sans-serif, serif, 'Times New Roman', Times, serif;
+    font-family: Rubik, sans-serif, serif, 'Garamond', Times, serif;
 }
 
 .example::-webkit-scrollbar {
@@ -34,8 +35,8 @@ footer {
 
 .btn-edit {
     color: #fff;
-    background-color: cadetblue;
-    border-color: cadetblue;
+    background-color: #7c7e4a;
+    border-color: #7c7e4a;
     margin: 3px 1px;
     padding: 12px 32px;
     border-radius: 24px;
@@ -51,8 +52,8 @@ footer {
 
 .btn-delete {
     color: #fff;
-    background-color: #c4463c;
-    border-color: #c4463c;
+    background-color: #5f3734;
+    border-color: #5f3734;
     margin: 3px 1px;
     padding: 12px 32px;
     border-radius: 24px;
@@ -61,15 +62,15 @@ footer {
     cursor: pointer;
 }
 .btn-delete:hover {
-    background: #FF3300;
+    background: #c4463c;
     color: #ffffff;
     /*border: 0.5px solid white;*/
 }
 
 .btn-create {
     color: #fff;
-    background-color: steelblue;
-    border-color: steelblue;
+    background-color: #767777;
+    border-color: #767777;
     margin: 3px 1px;
     padding: 12px 32px;
     border-radius: 24px;
@@ -79,7 +80,7 @@ footer {
 }
 .btn-create:hover {
     color: #D4DFE9;
-    background-color: #333399;
+    background-color: steelblue;
     /*border: 0.5px solid white;*/
 }
 html,
@@ -209,11 +210,12 @@ body {
   border-radius: calc(var(--curve) * 1px);
   overflow: hidden;
   text-decoration: none;
+  margin: 5%;
 }
 
 .card__image {
   width: 100%;
-  height: auto;
+  height: 70%;
 }
 
 .card__overlay {
@@ -222,7 +224,7 @@ body {
   left: 0;
   right: 0;
   z-index: 1;
-  border-radius: calc(var(--curve) * 1px);
+  border-radius: calc(var(--curve) * 2px);
   background-color: var(--surface-color);
   transform: translateY(100%);
   transition: .2s ease-in-out;
@@ -238,7 +240,7 @@ body {
   align-items: center;
   gap: 2em;
   padding: 2em;
-  border-radius: calc(var(--curve) * 1px) 0 0 0;
+  border-radius: calc(var(--curve) * 2px) 0 0 0;
   background-color: var(--surface-color);
   transform: translateY(-100%);
   transition: .2s ease-in-out;
@@ -270,17 +272,17 @@ body {
 }
 
 .card__title {
-  font-size: 1em;
+  font-size: 1.2em;
   margin: 0 0 .3em;
-  color: #6A515E;
+  color: #111;
 }
 
 .card__tagline {
   display: block;
-  margin: 1em 0;
+  margin: 0.1em 0;
   font-family: "MockFlowFont";
-  font-size: .8em;
-  color: #D7BDCA;
+  font-size: .9em;
+  color: #6A515E;
 }
 
 .card__status {
@@ -291,7 +293,7 @@ body {
 .card__description {
   padding: 0 2em 2em;
   margin: 0;
-  color: #D7BDCA;
+  color: #6A515E;
   font-family: "MockFlowFont";
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -319,25 +321,7 @@ figure {
     display: block;
     margin-bottom: 20px;
   }
-/*  img.top {*/
-/*    position: absolute;*/
-/*    top: 115px;*/
-/*    left: 0;*/
-/*  }*/
-/*figcaption {*/
-/*    border: 5px solid #009688;*/
-/*    color: #009688;*/
-/*    text-transform: uppercase;*/
-/*    font-size: 3rem;*/
-/*    line-height: 1;*/
-/*    padding: 0.25rem;*/
-/*    text-align: center;*/
-/*    position: sticky;*/
-/*    top: 0;*/
-/*    mix-blend-mode: color-dodge;}*/
-/*    strong {*/
-/*      display: block;*/
-/*    }*/
+
 
   + p {
     padding-top: 20px;
@@ -422,10 +406,12 @@ li {
 }
 
 /*RESPONSIVE NAVBAR MENU STARTS*/
-/* CHECKBOX HACK */
-input[type=checkbox]{
- display: none;
-}
+/* !!!!!!!!!!  CHECKBOX HACK it breaks my checkboxes for companies* */
+
+
+/*input[type=checkbox]{*/
+/* display: none;*/
+/*}*/
 /*HAMBURGER MENU*/
 .hamburger {
  display: none;
@@ -564,86 +550,6 @@ h3 {
   font-weight: 300;
 }
 
-
-/* For All Articles section
- */
-
-/*body {*/
-/*  display: flex;*/
-/*  justify-content: center;*/
-/*  align-items: center;*/
-/*  margin: 0;*/
-/*  background-color: #f7f8fc;*/
-/*  font-family: "Roboto", sans-serif;*/
-/*  color: #10182f;*/
-/*}*/
-
-/*.legal_articles .container {*/
-/*  display: flex;*/
-/*  width: 1040px;*/
-/*  justify-content: space-evenly;*/
-/*  flex-wrap: wrap;*/
-/*}*/
-/*.legal_articles.card {*/
-/*  margin: 10px;*/
-/*  background-color: #fff;*/
-/*  border-radius: 10px;*/
-/*  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);*/
-/*  overflow: hidden;*/
-/*  width: 300px;*/
-/*}*/
-/*.legal_articles .card-header img {*/
-/*  width: 100%;*/
-/*  height: 200px;*/
-/*  object-fit: cover;*/
-/*}*/
-/*.legal_articles .card-body {*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  justify-content: center;*/
-/*  align-items: flex-start;*/
-/*  padding: 20px;*/
-/*  min-height: 250px;*/
-/*}*/
-
-/*.legal_articles .tag {*/
-/*  background: #cccccc;*/
-/*  border-radius: 50px;*/
-/*  font-size: 12px;*/
-/*  margin: 0;*/
-/*  color: #fff;*/
-/*  padding: 2px 10px;*/
-/*  text-transform: uppercase;*/
-/*  cursor: pointer;*/
-/*}*/
-/*.legal_articles .tag-teal {*/
-/*  background-color: #47bcd4;*/
-/*}*/
-/*.legal_articles .tag-purple {*/
-/*  background-color: #5e76bf;*/
-/*}*/
-/*.legal_articles .tag-pink {*/
-/*  background-color: #cd5b9f;*/
-/*}*/
-
-/*.legal_articles.card-body p {*/
-/*  font-size: 13px;*/
-/*  margin: 0 0 40px;*/
-/*}*/
-/*.legal_articles .user {*/
-/*  display: flex;*/
-/*  margin-top: auto;*/
-/*}*/
-
-/*.legal_articles .user img {*/
-/*  border-radius: 50%;*/
-/*  width: 40px;*/
-/*  height: 40px;*/
-/*  margin-right: 10px;*/
-/*}*/
-/*.legal_articles .user-info h5 {*/
-/*  margin: 0;*/
-/*}*/
-/*.legal_articles .user-info small {*/
-/*  color: #545d7a;*/
-/*}*/
+p.notif1 {
+    margin: 1%;
+}

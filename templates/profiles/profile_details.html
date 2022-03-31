@@ -2,7 +2,8 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <h1>{{ request.user }}</h1>
+    <div class="white_block">
+    <h3>{{ request.user }}</h3>
     <form action="{% url 'profile details' %}" method="post">
     {% csrf_token %}
     {{ form | crispy }}
@@ -10,8 +11,9 @@
     </form>
     <div class="card-body">
         <p class="text-info">Do you want to change your password?
-        <a href="{% url 'change_password' %}" class="btn btn-primary">Change password!</a>
+        <a href="{% url 'change_password' %}" class="btn-create">Change password!</a>
         </p>
+    </div>
     </div>
 
 {% endblock %}

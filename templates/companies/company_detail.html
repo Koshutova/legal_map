@@ -2,30 +2,31 @@
 {% load has_group %}
 
 {% block content %}
-    <article>
-        <p style="color:rosybrown;">{{ company.company_name }}</p>
-        <img src="{{ company.image_url }}" alt="" style="width: 30%">
-
-        {% if areas.exists %}
+    <div class="white_block_details">
+        <form method="post" style="color:#111;" >
+            <h3 class="text-center">{{ company.company_name }}</h3>
+            <hr>
+            <img class="content_image" src="{{ company.image_url }}" alt="" >
+            {% if company.areas.exists %}
             {% for area in areas %}
-                <p class="card-text"><u>Main area:</u>{{ area.name }}</p>
-            {% endfor %}
+            <h5> {{ area.name }}</h5>
+        {% endfor %}
         {% endif %}
-
-        {% if company.expertise %}
-            <p>><u>Expertise:</u> {{ company.expertise }}</p>
-        {% endif %}
-        <p><u>Details:</u> {{ company.phone_number }}</p>
+         <p><u>Details:</u> {{ company.phone_number }}</p>
         <p>{{ company.address }}</p>
         <p>{{ company.website }}</p>
-
+        {% if company.expertise %}
+            <h5 class="text_description"> Expertise: {{ company.expertise }}</h5>
+        {% endif %}
         {% if is_creator or request.user|has_group:'Admin'%}
             <div>
                 <a href="{% url 'company edit' company.id %}" class="btn-edit">Edit</a>
                 <a href="{% url 'company delete' company.id %}" class="btn-delete">Delete</a>
             </div>
         {% endif %}
-    </article>
+
+         </form>
+    </div>
 
 {% endblock %}
 
