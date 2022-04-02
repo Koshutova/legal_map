@@ -17,7 +17,7 @@
                         {% else %}
                             <h5 class="card-subtitle">Legal map</h5>
                         {% endif %}
-                        <p class="text_description">{{ article.article_text }}</p>
+                        <p class="text_description">{{ article.article_text.html }}</p>
                         <p class="block_date_text">{{ article.created }}</p>
                         <a href="{% url 'article edit' article.id %}" class="btn-edit">Edit</a>
                         <a href="{% url 'article delete' article.id %}" class="btn btn-danger">Delete</a>

@@ -553,3 +553,18 @@ h3 {
 p.notif1 {
     margin: 1%;
 }
+
+/* QillyField settings */
+
+.ql-snow * {
+    box-sizing: border-box;
+    background-color: whitesmoke;
+}
+.ql-container {
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  height: 100%;
+  margin: 0px;
+  position: relative;
+}

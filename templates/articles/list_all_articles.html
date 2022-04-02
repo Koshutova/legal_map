@@ -1,6 +1,7 @@
 {% extends 'common/base.html' %}
 {% load has_group %}
 
+
 {% block content %}
     {% if request.user.is_authenticated and request.user|has_group:'Author' or request.user|has_group:'Admin' %}
     <a href="{% url 'article create' %}" class="btn btn-dark">Create article</a>
@@ -19,7 +20,7 @@
                 {% else %}
                     <h5 class="card-subtitle">Legal map</h5>
                 {% endif %}
-                <p class="text_description">{{ article.article_text}}</p>
+                <p class="text_description">{{ article.article_text.html}}</p>
                 <p class="block_date_text">{{ article.created }}</p>
                 <a href="{% url 'article details' article.id %}" class="btn-edit">See details</a>
          </form>
