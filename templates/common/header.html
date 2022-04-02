@@ -6,7 +6,7 @@
         <!-- NAVIGATION MENU -->
         <ul class="nav-links">
             <!-- USING CHECKBOX HACK -->
-            <input type="checkbox" id="checkbox_toggle"/>
+            <input style="color: #8b6745" type="checkbox" id="checkbox_toggle"/>
             <label for="checkbox_toggle" class="hamburger">&#9776;</label>
             <!-- NAVIGATION MENUS -->
             <div class="menu">
@@ -20,7 +20,7 @@
                         <li><a href="{% url 'list all articles' %}">All articles </a></li>
                         <li><a href="{% url 'legal index' %}">Legal help </a></li>
                         <li><a href="{% url 'company create' %}">Create company </a></li>
-                        <a class="dropdown-item" href="{% url 'list my companies' %}">My companies</a></li>
+                        <li><a href="{% url 'list my companies' %}">My companies</a></li>
                             {% if request.user|has_group:'Author' or request.user|has_group:'Admin'%}
                                 <li><a href="{% url 'article create' %}">Create article </a></li>
                                 <li><a href="{% url 'list my articles' %}">My articles </a></li>

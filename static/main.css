@@ -424,7 +424,7 @@ li {
 .menu {
  display:none;
  position: absolute;
- background-color:teal;
+ background-color:#8b6745;
  right: 0;
  left: 0;
  text-align: center;
@@ -432,7 +432,7 @@ li {
 }
 .menu li:hover {
  display: inline-block;
- background-color:#4c9e9e;
+ background-color:#604003;
  transition: 0.3s ease;
 }
 .menu li + li {
@@ -450,7 +450,7 @@ input[type=checkbox]:checked ~ .menu{
  transform: translateX(35%);
 }
 .dropdown li:hover {
- background-color: #4c9e9e;
+ background-color: #604003;
 }
 }
 

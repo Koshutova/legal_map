@@ -24,11 +24,11 @@
             {% endfor %}
         {% else %}
             <div class="card-body">
-                <p class="text-info" style="color:#6A515E;">You have no companies registered yet.
-                    Register your first company<a href="{% url 'company create' %}" class="text-primary"> here!</a>
+                <p class="p. notif1" style="color:#8b6745;">You have no companies registered yet.
+                    Register your first company<a href="{% url 'company create' %}" class="badge badge-pill badge-dark"> here!</a>
                 </p>
-                <p class="text-info" style="color:#6A515E;">You don not want to register company?
-                    Go back to Legal help <a href="{% url 'legal index' %}" class="badge badge-pill badge-info">
+                <p class="p. notif1" style="color:#8b6745;">You don not want to register company?
+                    Go back to Legal help <a href="{% url 'legal index' %}" class="badge badge-pill badge-dark">
                         here!</a>
                 </p>
             </div>
