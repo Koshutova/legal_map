@@ -1,8 +1,8 @@
 from django.contrib.auth import get_user_model, logout
 from django.contrib.auth.views import LoginView
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.urls import reverse_lazy, reverse
-from django.views.generic import CreateView, FormView
+from django.views.generic import CreateView
 
 from legal_map.legal_auth.forms import SignUpForm, SignInForm
 

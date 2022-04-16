@@ -103,31 +103,6 @@ body {
   align-items: center;
 }
 
-/*.legal_articles .card-header {*/
-/*    background-color: seashell;*/
-/*}*/
-
-
-
-/*.legal_articles .myimage {*/
-/*    opacity: 1;*/
-/*    display: block;*/
-/*    transition: .5s ease;*/
-/*    backface-visibility: hidden;*/
-/*}*/
-
-/*.legal_articles .card-img-top:hover {*/
-/*    opacity: 0.9;*/
-/*    transform: scale(1.02);*/
-/*    transition: 0.2s ease;*/
-
-/*}*/
-
-/*.legal_articles .col-md-3 .card {*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-
-/*}*/
 
 
 .fa:hover {

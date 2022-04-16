@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'legal_map.profiles',
     'legal_map.articles',
     'legal_map.legal_help',
+
     'crispy_forms',
     'captcha',
     'django_quill',
