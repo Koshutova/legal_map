@@ -1,12 +1,10 @@
 from django.urls import reverse
-from django.contrib.auth.models import Group
 from legal_map.articles.models import Article
 from tests.base.mixins import LegalTestUtils
 from tests.base.tests import LegalTestCase
 
 
 class ArticlesTest(LegalTestUtils, LegalTestCase):
-
 
     def test_indexTemplateUsed(self):
         response = self.client.get(reverse('index'))
@@ -17,14 +15,14 @@ class ArticlesTest(LegalTestUtils, LegalTestCase):
             title='First Test Title',
             picture='path/to/image.png',
             author_name='Test First Author',
-            article_text='Some long enough text for article text.',
+            article_text='{"delta": ""}',
             user=self.user
         )
         article2 = Article.objects.create(
             title='Second Test Title',
             picture='path/to/image.png',
             author_name='Test Author Name',
-            article_text='Some long enough text for article text.',
+            article_text='{"delta": ""}',
             user=self.user
         )
         self.client.force_login(self.user)
@@ -35,7 +33,7 @@ class ArticlesTest(LegalTestUtils, LegalTestCase):
             title='First Test Title',
             picture='path/to/image.png',
             author_name='Test First Author',
-            article_text='Some long enough text for article text.',
+            article_text='{"delta": ""}',
             user=self.user
         )
         article2_user = self.create_user(email='article@test.mail', password='1289testart')
@@ -43,7 +41,7 @@ class ArticlesTest(LegalTestUtils, LegalTestCase):
             title='Second Test Title',
             picture='path/to/image.png',
             author_name='Test Author Name',
-            article_text='Some long enough text for article text.',
+            article_text='{"delta": ""}',
             user=article2_user
         )
         self.client.force_login(self.user)
@@ -55,7 +53,7 @@ class ArticlesTest(LegalTestUtils, LegalTestCase):
             'title': 'Some Test Title',
             'picture': 'path/to/image.png',
             'author_name': 'Test Author Name',
-            'article_text': 'Some long enough text for article text.',
+            'article_text':'{"delta": ""}',
             'user': self.user
         })
         self.assertEqual(response.status_code, 200)
@@ -66,7 +64,7 @@ class ArticlesTest(LegalTestUtils, LegalTestCase):
             title='First Test Title',
             picture='path/to/image.png',
             author_name='Test First Author',
-            article_text='Some long enough text for article text.',
+            article_text='{"delta": ""}',
             user=self.user
         )
         response = self.client.get(reverse('article details', kwargs={'pk':article.id}))
@@ -81,7 +79,7 @@ class ArticlesTest(LegalTestUtils, LegalTestCase):
             title='First Test Title',
             picture='path/to/image.png',
             author_name='Test First Author',
-            article_text='Some long enough text for article text.',
+            article_text='{"delta": ""}',
             user=article_user
         )
         response = self.client.get(reverse('article details', kwargs={'pk':article.id}))
@@ -93,7 +91,7 @@ class ArticlesTest(LegalTestUtils, LegalTestCase):
             title='First Test Title',
             picture='path/to/image.png',
             author_name='Test First Author',
-            article_text='Some long enough text for article text.',
+            article_text='{"delta": ""}',
             user=self.user
         )
         response = self.client.get(reverse('article details', kwargs={'pk': article.id}))
@@ -106,7 +104,7 @@ class ArticlesTest(LegalTestUtils, LegalTestCase):
             title='First Test Title',
             picture='path/to/image.png',
             author_name='Test First Author',
-            article_text='Some long enough text for article text.',
+            article_text='{"delta": ""}',
             user=self.user
         )
         get_response = self.client.get(reverse('article delete', kwargs={'pk': article.id}), follow=True)
@@ -120,7 +118,7 @@ class ArticlesTest(LegalTestUtils, LegalTestCase):
             title='First Test Title',
             picture='path/to/image.png',
             author_name='Test First Author',
-            article_text='Some long enough text for article text.',
+            article_text='{"delta": ""}',
             user=self.user
         )
         article2_user = self.create_user(email='article@test.mail', password='1289testart')
@@ -128,7 +126,7 @@ class ArticlesTest(LegalTestUtils, LegalTestCase):
             title='Second Test Title',
             picture='path/to/image.png',
             author_name='Test Author Name',
-            article_text='Some long enough text for article text.',
+            article_text='{"delta": ""}',
             user=article2_user
         )
         self.client.force_login(self.user)

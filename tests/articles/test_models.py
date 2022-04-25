@@ -9,11 +9,10 @@ class ArticleModelTest(LegalTestCase):
             title='Some Test Title',
             picture='path/to/image.png',
             author_name='Test Author Name',
-            article_text='Some long enough text for article text.',
+            article_text='{"delta": ""}',
             user=self.user
         )
         self.assertEqual(article.title,'Some Test Title')
         self.assertEqual(article.picture, 'path/to/image.png')
         self.assertEqual(article.author_name, 'Test Author Name')
-        self.assertEqual(article.article_text, 'Some long enough text for article text.')
         self.assertTrue(isinstance(article, Article))
