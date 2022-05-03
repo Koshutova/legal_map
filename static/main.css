@@ -284,7 +284,7 @@ body {
   overflow: hidden;
 }
 
-/* article experiment
+/* article
 */
 
 article {
@@ -389,14 +389,6 @@ text-align: left;
 .services:hover .dropdown {
  display: block;
 }
-
-/*RESPONSIVE NAVBAR MENU STARTS*/
-/* !!!!!!!!!!  CHECKBOX HACK it breaks my checkboxes for companies* */
-
-
-/*input[type=checkbox]{*/
-/* display: none;*/
-/*}*/
 
 /*HAMBURGER MENU*/
 .hamburger {
@@ -546,7 +538,7 @@ p.notif1 {
     margin: 1%;
 }
 
-/* QillyField settings */
+/* QuillField settings */
 .ql-snow  {
     background-color: whitesmoke;
 }
